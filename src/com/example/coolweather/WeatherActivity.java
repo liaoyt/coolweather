@@ -76,6 +76,10 @@ public class WeatherActivity extends Activity implements android.view.View.OnCli
 		currentDateText.setText(preferences.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
+		
+		// 开启自动更新服务
+		Intent intent = new Intent(this, AutoUpdateService.class);
+		startService(intent);
 	}
 
 	private void queryWeatherCode(String countyCode) {
